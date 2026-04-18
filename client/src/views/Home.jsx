@@ -1,23 +1,22 @@
-import React from "react";
+"use client";
+
 import { motion } from "framer-motion";
-
 import HeroSection from "../components/HeroSection";
-import InterestsSection from "../components/InterestsSection";
+import HomeHighlights from "../components/home/HomeHighlights";
 import DSACodingProfiles from "../components/DSACodingProfiles";
+import InterestsSection from "../components/InterestsSection";
 
-const Home = () => {
+export default function Home() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen bg-gray-50 flex flex-col justify-center py-16 px-4 md:px-20"
+      className="min-h-screen"
     >
       <HeroSection />
+      <HomeHighlights />
       <DSACodingProfiles />
       <InterestsSection />
     </motion.div>
   );
-};
-
-export default Home;
+}

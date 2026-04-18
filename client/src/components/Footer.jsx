@@ -1,207 +1,110 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
   FaTwitter,
-  FaShieldAlt,
-  FaRocket,
-  FaGraduationCap,
-  FaLightbulb,
 } from "react-icons/fa";
 import { SiTryhackme } from "react-icons/si";
+import { siteConfig } from "@/config/site";
 
-const Footer = () => {
-  const socialLinks = [
-    {
-      icon: <FaGithub />,
-      url: "https://github.com/varunyadavgithub",
-      color: "text-gray-800 hover:text-black",
-      label: "GitHub Profile",
-    },
-    {
-      icon: <FaLinkedin />,
-      url: "https://www.linkedin.com/in/varunyadavcse25/",
-      color: "text-blue-600 hover:text-blue-800",
-      label: "LinkedIn Profile",
-    },
-    {
-      icon: <FaTwitter />,
-      url: "https://x.com/varun_yadav01",
-      color: "text-blue-400 hover:text-blue-600",
-      label: "Twitter Profile",
-    },
-    {
-      icon: <SiTryhackme />,
-      url: "https://tryhackme.com/p/th3c0d3hunt3r101",
-      color: "text-red-500 hover:text-red-400",
-      label: "TryHackMe Profile",
-    },
-  ];
+const quick = [
+  { label: "Projects", href: "/projects" },
+  { label: "Resources", href: "/resources" },
+  { label: "Skills", href: "/skills" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
-  const footerSections = [
-    {
-      title: "My Learning Path",
-      links: [
-        {
-          name: "Emerging Technologies",
-          icon: <FaRocket />,
-          description: "Exploring and growing in tech",
-        },
-        {
-          name: "Skill Development",
-          icon: <FaGraduationCap />,
-          description: "Continuous learning mindset",
-        },
-        {
-          name: "Open to Opportunities",
-          icon: <FaLightbulb />,
-          description: "Eager to learn and contribute",
-        },
-      ],
-    },
-    {
-      title: "Quick Links",
-      links: [
-        { name: "Home", path: "/" },
-        { name: "Projects", path: "/projects" },
-        { name: "Skills", path: "/skills" },
-        { name: "About", path: "/about" },
-        { name: "Contact", path: "/contact" },
-      ],
-    },
-  ];
+const social = [
+  {
+    icon: FaGithub,
+    href: "https://github.com/varunyadavgithub",
+    label: "GitHub",
+  },
+  {
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/varunyadavcse25/",
+    label: "LinkedIn",
+  },
+  {
+    icon: FaTwitter,
+    href: "https://x.com/varun_yadav01",
+    label: "X",
+  },
+  {
+    icon: SiTryhackme,
+    href: "https://tryhackme.com/p/th3c0d3hunt3r101",
+    label: "TryHackMe",
+  },
+];
 
-  const footerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
+export default function Footer() {
   return (
-    <motion.footer
-      initial="hidden"
-      whileInView="visible"
-      variants={footerVariants}
-      className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 md:px-20 border-t"
-    >
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Branding and Description */}
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <FaShieldAlt className="text-blue-600 text-3xl" />
-              <h2 className="text-2xl font-bold text-gray-800">Varun Yadav</h2>
-            </div>
-            <p className="text-gray-600 mb-6">
-              A passionate learner exploring the world of technology, with a
-              focus on web development, DevOps, and cybersecurity. Committed to
-              continuous growth and innovation.
+    <footer className="relative z-10 border-t border-white/[0.06] bg-zinc-950/80">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:px-10">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <p className="font-[family-name:var(--font-outfit)] text-xl font-semibold text-white">
+              {siteConfig.name}
             </p>
-
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.url}
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-500">
+              {siteConfig.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {social.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className={`text-2xl ${social.color} transition-all duration-300`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-lg text-zinc-400 transition-colors hover:border-cyan-500/30 hover:text-cyan-300"
                 >
-                  {social.icon}
-                </motion.a>
+                  <Icon />
+                </a>
               ))}
             </div>
-
-            {/* Learning in Progress Section */}
-            <div className="bg-blue-50 p-4 rounded-lg mt-6">
-              <div className="flex items-center space-x-2 mb-2">
-                <FaLightbulb className="text-yellow-500" />
-                <h4 className="font-semibold text-gray-800">
-                  Learning in Progress
-                </h4>
-              </div>
-              <p className="text-sm text-gray-600">
-                As a passionate learner, I'm continuously expanding my skills
-                and exploring new technologies. Open to guidance and
-                opportunities for growth.
-              </p>
-            </div>
           </div>
 
-          {/* Footer Sections */}
-          {footerSections.map((section, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">
-                {section.title}
-              </h3>
-              <div className="space-y-3">
-                {section.links.map((link, linkIndex) => (
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Navigate
+            </p>
+            <ul className="mt-4 space-y-2">
+              {quick.map((item) => (
+                <li key={item.href}>
                   <Link
-                    key={linkIndex}
-                    to={link.path}
-                    className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                    href={item.href}
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
                   >
-                    {link.icon && (
-                      <span className="text-blue-500">{link.icon}</span>
-                    )}
-                    <div>
-                      <p className="font-medium">{link.name}</p>
-                      {link.description && (
-                        <p className="text-xs text-gray-500">
-                          {link.description}
-                        </p>
-                      )}
-                    </div>
+                    {item.label}
                   </Link>
-                ))}
-              </div>
-            </div>
-          ))}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Stack note
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+              This site is built with{" "}
+              <span className="text-zinc-300">Next.js 16</span>,{" "}
+              <span className="text-zinc-300">Tailwind CSS v4</span>, and{" "}
+              <span className="text-zinc-300">Framer Motion</span>. Content
+              layers are structured for a future API.
+            </p>
+          </div>
         </div>
 
-        {/* Security and Copyright */}
-        <div className="mt-12 pt-6 border-t text-center">
-          <div className="flex justify-center items-center space-x-2 mb-4 text-gray-600">
-            <FaShieldAlt className="text-blue-600" />
-            <p className="text-sm">Learning and Growing in Tech</p>
-          </div>
-
-          <p className="text-gray-600">
-            © {new Date().getFullYear()} Varun Yadav. All Rights Reserved.
-          </p>
-
-          <div className="mt-2 text-xs text-gray-500 flex justify-center space-x-4">
-            <Link
-              to="/privacy-policy"
-              className="hover:text-blue-600 cursor-not-allowed"
-              onClick={(e) => e.preventDefault()}
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/terms-of-service"
-              className="hover:text-blue-600 cursor-not-allowed"
-              onClick={(e) => e.preventDefault()}
-            >
-              Terms of Service
-            </Link>
-          </div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 text-xs text-zinc-600 sm:flex-row">
+          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p className="text-zinc-600">Built with intention · iterate often</p>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,11 +1,12 @@
-/* styles/navbar.css */
+/* Mobile menu — bars visible on dark nav */
 .hamburger .bar {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 22px;
+  height: 2px;
   margin: 5px auto;
-  background-color: #333;
-  transition: all 0.3s ease-in-out;
+  background-color: rgb(228 228 231);
+  transition: all 0.25s ease-in-out;
+  border-radius: 2px;
 }
 
 .hamburger.active .bar:nth-child(1) {

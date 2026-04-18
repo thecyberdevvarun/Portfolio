@@ -1,8 +1,3 @@
-import Profile from "./Profile.jpg";
-import Resume from "./Varun_Yadav_Resume.pdf";
-import LeetCode from "./LeetCode_logo.png";
-import Gfg from "./Gfg_logo.svg";
-import CodingNinjas from "./CodingNinjas_logo.svg";
 import { FaCode, FaLaptopCode, FaRocket } from "react-icons/fa";
 import {
   FaReact,
@@ -36,7 +31,13 @@ import {
 
 import { VscVscode } from "react-icons/vsc";
 
-export const assets = { Profile,Resume, LeetCode, Gfg, CodingNinjas };
+export const assets = {
+  Profile: "/assets/Profile.jpg",
+  Resume: "/assets/Varun_Yadav_Resume.pdf",
+  LeetCode: "/assets/LeetCode_logo.png",
+  Gfg: "/assets/Gfg_logo.svg",
+  CodingNinjas: "/assets/CodingNinjas_logo.svg",
+};
 
 export const Expertise = [
   {
