@@ -1,17 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiTryhackme } from "react-icons/si";
 import { siteConfig } from "@/config/site";
 
 const quick = [
   { label: "Projects", href: "/projects" },
   { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
+  { label: "Writings", href: "/writings" },
   { label: "Skills", href: "/skills" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -101,7 +99,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 text-xs text-zinc-600 sm:flex-row">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
           <p className="text-zinc-600">Built with intention · iterate often</p>
         </div>
       </div>

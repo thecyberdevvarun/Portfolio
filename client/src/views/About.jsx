@@ -97,53 +97,7 @@ const workExperience = [
       "GitHub",
     ],
   },
-  {
-    company: "HackerOne",
-    logo: "https://media.licdn.com/dms/image/v2/D560BAQHfPLS1BMzB4Q/company-logo_100_100/B56ZWl1KaTGUAY-/0/1742243932059/hackerone_logo?e=1762387200&v=beta&t=KZ4fE3xzSMjKYONiyb7EBjUgQTqqvz1q-tVt6OkvLgQ",
-    position: "Security Researcher (Freelance)",
-    duration: "Sep 2025 - Present",
-    location: "San Francisco, California, United States · Remote",
-    description: [
-      "As a Freelance Security Researcher on HackerOne, I participate in vulnerability research and responsible disclosure programs for real-world web and API applications.",
-      "Performing detailed security assessments to uncover and exploit vulnerabilities such as XSS, SQLi, CSRF, IDOR, and authentication flaws.",
-      "Submitting professional vulnerability reports with Proof of Concept (PoC) and remediation recommendations.",
-      "Applying modern penetration testing methodologies and frameworks including OWASP Top 10 and MITRE ATT&CK.",
-      "Enhancing skills in reconnaissance, exploit techniques, and advanced vulnerability analysis to support secure software development.",
-      "This role allows me to contribute to global security initiatives while continuously expanding my expertise in ethical hacking.",
-    ],
-    technologies: [
-      "Ethical Hacking",
-      "Web Application Security",
-      "Penetration Testing",
-      "Vulnerability Assessment",
-      "OWASP Top 10",
-      "Reconnaissance",
-      "Exploit Techniques",
-    ],
-  },
-  {
-    company: "Bugcrowd",
-    logo: "https://media.licdn.com/dms/image/v2/D560BAQEBl6E3caP82Q/company-logo_100_100/company-logo_100_100/0/1719839119236?e=1762387200&v=beta&t=nINJlIDwr_1pkixgfHokunM9gfIWWoDMJ3V5Fp14oSo",
-    position: "Penetration Tester (Freelance)",
-    duration: "Oct 2025 - Present",
-    location: "San Francisco, California, United States · Remote",
-    description: [
-      "As a Freelance Penetration Tester at Bugcrowd, I perform security testing and vulnerability research for real-world web and API applications.",
-      "Conducting comprehensive penetration tests to identify security flaws such as XSS, SQLi, IDOR, authentication bypass, and server misconfigurations.",
-      "Preparing and submitting detailed vulnerability reports with Proof of Concept (PoC) demonstrations for responsible disclosure.",
-      "Applying cybersecurity frameworks and best practices including OWASP Top 10, MITRE ATT&CK, and exploit development methodologies.",
-      "Continuously enhancing skills in ethical hacking, threat modeling, and advanced vulnerability analysis to strengthen system defenses.",
-    ],
-    technologies: [
-      "Penetration Testing",
-      "Ethical Hacking",
-      "Web Application Security",
-      "OWASP Top 10",
-      "MITRE ATT&CK",
-      "Vulnerability Research",
-      "Exploit Development",
-    ],
-  },
+
 ];
 
 const education = [

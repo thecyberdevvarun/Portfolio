@@ -9,14 +9,10 @@ import {
   FaBookOpen,
   FaPenFancy,
   FaLayerGroup,
+  FaArrowRight,
 } from "react-icons/fa";
 import PageHeader from "@/components/ui/PageHeader";
-import {
-  getLearningResources,
-  getBlogPosts,
-  getWritings,
-} from "@/lib/data-layer";
-import { resourceCategories } from "@/data/resources";
+import { learningResources, resourceCategories } from "@/data/resources";
 
 const tabs = [
   { id: "learn", label: "Learning links", icon: FaLayerGroup },
@@ -24,10 +20,8 @@ const tabs = [
   { id: "writing", label: "Writings & notes", icon: FaPenFancy },
 ];
 
-export default function Resources() {
-  const learning = getLearningResources();
-  const posts = getBlogPosts();
-  const writings = getWritings();
+export default function Resources({ blogPosts = [], writings = [] }) {
+  const learning = learningResources;
 
   const [tab, setTab] = useState("learn");
   const [query, setQuery] = useState("");
@@ -48,14 +42,14 @@ export default function Resources() {
 
   const filteredPosts = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return posts;
-    return posts.filter(
+    if (!q) return blogPosts;
+    return blogPosts.filter(
       (p) =>
         p.title.toLowerCase().includes(q) ||
-        p.excerpt.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q))
+        (p.excerpt || "").toLowerCase().includes(q) ||
+        (p.tags || []).some((t) => t.toLowerCase().includes(q))
     );
-  }, [posts, query]);
+  }, [blogPosts, query]);
 
   const filteredWritings = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -63,8 +57,8 @@ export default function Resources() {
     return writings.filter(
       (w) =>
         w.title.toLowerCase().includes(q) ||
-        w.excerpt.toLowerCase().includes(q) ||
-        w.tags.some((t) => t.toLowerCase().includes(q))
+        (w.excerpt || "").toLowerCase().includes(q) ||
+        (w.tags || []).some((t) => t.toLowerCase().includes(q))
     );
   }, [writings, query]);
 
@@ -73,7 +67,7 @@ export default function Resources() {
       <PageHeader
         eyebrow="Knowledge base"
         title="Resources & writing"
-        description="Curated docs and courses I revisit, plus articles and notes. Swap static data for an API when you are ready."
+        description="Curated links plus Markdown-powered blog and writings. Data is read from disk at build time; JSON APIs are available for future tools or a CMS."
         icon={FaBookOpen}
       />
 
@@ -190,17 +184,29 @@ export default function Resources() {
             exit={{ opacity: 0, y: -8 }}
             className="space-y-4"
           >
+            <div className="flex justify-end">
+              <Link
+                href="/blog"
+                className="text-sm font-medium text-cyan-400 hover:text-cyan-300"
+              >
+                Open blog index →
+              </Link>
+            </div>
             {filteredPosts.map((p) => (
               <article
-                key={p.id}
+                key={p.slug}
                 className="surface-card p-6 transition hover:border-violet-500/25"
               >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-500">
                       <time dateTime={p.publishedAt}>{p.publishedAt}</time>
-                      <span>·</span>
-                      <span>{p.readTime}</span>
+                      {p.readTime && (
+                        <>
+                          <span>·</span>
+                          <span>{p.readTime}</span>
+                        </>
+                      )}
                     </div>
                     <h3 className="mt-2 font-[family-name:var(--font-outfit)] text-xl font-semibold text-white">
                       {p.title}
@@ -208,11 +214,8 @@ export default function Resources() {
                     <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-500">
                       {p.excerpt}
                     </p>
-                    {p.note && (
-                      <p className="mt-2 text-xs text-amber-400/80">{p.note}</p>
-                    )}
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {p.tags.map((t) => (
+                      {(p.tags || []).map((t) => (
                         <span
                           key={t}
                           className="rounded-md bg-violet-500/10 px-2 py-0.5 text-xs text-violet-300"
@@ -222,13 +225,13 @@ export default function Resources() {
                       ))}
                     </div>
                   </div>
-                  <a
-                    href={p.href}
+                  <Link
+                    href={`/blog/${p.slug}`}
                     className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-zinc-200 transition hover:border-cyan-500/40 hover:text-white"
                   >
                     Read
-                    <FaExternalLinkAlt className="text-xs" />
-                  </a>
+                    <FaArrowRight className="text-xs" />
+                  </Link>
                 </div>
               </article>
             ))}
@@ -244,11 +247,19 @@ export default function Resources() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="grid gap-4 md:grid-cols-2"
           >
+            <div className="mb-4 flex justify-end">
+              <Link
+                href="/writings"
+                className="text-sm font-medium text-fuchsia-400 hover:text-fuchsia-300"
+              >
+                Open writings index →
+              </Link>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
             {filteredWritings.map((w) => (
               <article
-                key={w.id}
+                key={w.slug}
                 className="surface-card flex flex-col p-6 transition hover:border-fuchsia-500/20"
               >
                 <div className="flex items-center justify-between gap-2 text-xs text-zinc-500">
@@ -264,22 +275,19 @@ export default function Resources() {
                   {w.excerpt}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {w.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs text-zinc-500"
-                    >
+                  {(w.tags || []).map((t) => (
+                    <span key={t} className="text-xs text-zinc-500">
                       #{t}
                     </span>
                   ))}
                 </div>
-                <a
-                  href={w.href}
+                <Link
+                  href={`/writings/${w.slug}`}
                   className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300"
                 >
                   Open piece
-                  <FaExternalLinkAlt className="text-xs" />
-                </a>
+                  <FaArrowRight className="text-xs" />
+                </Link>
               </article>
             ))}
             {filteredWritings.length === 0 && (
@@ -287,24 +295,31 @@ export default function Resources() {
                 No writings match.
               </p>
             )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <div className="mt-16 rounded-2xl border border-dashed border-white/10 bg-zinc-900/30 p-6 text-center">
         <p className="text-sm text-zinc-500">
-          Backend next: connect this page to{" "}
-          <code className="rounded bg-white/5 px-1.5 py-0.5 text-cyan-300/90">
-            GET /api/resources
+          Author by adding <code className="text-cyan-300/90">.md</code> files
+          under <code className="text-cyan-300/90">content/blog</code> or{" "}
+          <code className="text-cyan-300/90">content/writings</code>. Use{" "}
+          <code className="text-cyan-300/90">draft: true</code> in frontmatter to
+          hide from lists. JSON:{" "}
+          <code className="rounded bg-white/5 px-1.5 py-0.5">
+            GET /api/content/blog
           </code>{" "}
-          or a CMS. The data layer lives in{" "}
-          <code className="rounded bg-white/5 px-1.5 py-0.5">src/lib/data-layer.js</code>.
+          ·{" "}
+          <code className="rounded bg-white/5 px-1.5 py-0.5">
+            GET /api/content/writings
+          </code>
         </p>
         <Link
           href="/contact"
           className="mt-4 inline-block text-sm font-medium text-cyan-400 hover:text-cyan-300"
         >
-          Want to collaborate on content? Reach out →
+          Want a web-based editor + database next? Reach out →
         </Link>
       </div>
     </div>

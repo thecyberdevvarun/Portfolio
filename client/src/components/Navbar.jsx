@@ -6,12 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "@/styles/navbar.css";
 import { siteConfig } from "@/config/site";
+import { useAuth } from "@/context/AuthContext";
 
-const navItems = [
+const baseNavItems = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
   { name: "Skills", path: "/skills" },
   { name: "Resources", path: "/resources" },
+  { name: "Blog", path: "/blog" },
+  { name: "Writings", path: "/writings" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
@@ -19,6 +22,12 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { role, isAuthenticated, username, logout, hydrated } = useAuth();
+
+  const navItems =
+    role === "admin"
+      ? [...baseNavItems, { name: "Admin", path: "/admin" }]
+      : baseNavItems;
 
   const menuVariants = {
     hidden: { opacity: 0, x: "100%" },
@@ -59,13 +68,40 @@ export default function Navbar() {
                   <motion.span
                     layoutId="nav-pill"
                     className="absolute inset-0 -z-10 rounded-full bg-white/[0.08] ring-1 ring-white/10"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 32,
+                    }}
                   />
                 )}
                 {item.name}
               </Link>
             );
           })}
+          <div className="ml-2 flex items-center gap-2">
+            {hydrated && isAuthenticated ? (
+              <>
+                <span className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-zinc-400">
+                  {role}: {username}
+                </span>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-cyan-500/30 hover:text-white"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5 text-xs font-medium text-cyan-200 transition hover:bg-cyan-500/20"
+              >
+                Login
+              </Link>
+            )}
+          </div>
         </div>
 
         <button
@@ -110,6 +146,33 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <div className="mt-3 border-t border-white/10 pt-3">
+                {hydrated && isAuthenticated ? (
+                  <div className="space-y-2">
+                    <p className="px-4 text-xs text-zinc-500">
+                      Signed in as {role}: {username}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        logout();
+                        setIsOpen(false);
+                      }}
+                      className="w-full rounded-xl px-4 py-3 text-left text-base font-medium text-zinc-300 hover:bg-white/5"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="block rounded-xl px-4 py-3 text-base font-medium text-cyan-200 hover:bg-cyan-500/10"
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
             </div>
           </motion.div>
         )}
