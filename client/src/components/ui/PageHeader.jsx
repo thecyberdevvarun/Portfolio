@@ -16,7 +16,7 @@ export default function PageHeader({
       className="mb-12 text-center md:text-left"
     >
       {eyebrow && (
-        <p className="mb-3 font-[family-name:var(--font-outfit)] text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400/90">
+        <p className="mb-3 font-(family-name:--font-outfit) text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400/90">
           {eyebrow}
         </p>
       )}
@@ -27,7 +27,7 @@ export default function PageHeader({
           </div>
         )}
         <div>
-          <h1 className="font-[family-name:var(--font-outfit)] text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h1 className="font-(family-name:--font-outfit) text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             {title}
           </h1>
           {description && (

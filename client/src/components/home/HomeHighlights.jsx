@@ -14,7 +14,7 @@ const cards = [
   },
   {
     title: "Resource hub",
-    desc: "Docs, courses, security references, blog posts, and technical notes.",
+    desc: "Curated docs, courses, YouTube videos, tools, and security references.",
     href: "/resources",
     icon: FaBookReader,
     accent: "from-violet-500/20 to-transparent",
@@ -36,7 +36,7 @@ export default function HomeHighlights() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400/80">
             Explore
           </p>
-          <h2 className="font-[family-name:var(--font-outfit)] text-2xl font-bold text-white">
+          <h2 className="font-(family-name:--font-outfit) text-2xl font-bold text-white">
             Navigate the portfolio
           </h2>
         </div>
@@ -61,10 +61,10 @@ export default function HomeHighlights() {
               className="group relative block overflow-hidden rounded-2xl border border-white/[0.07] bg-zinc-900/40 p-6 transition hover:border-cyan-500/25"
             >
               <div
-                className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${c.accent} blur-2xl`}
+                className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-linear-to-br ${c.accent} blur-2xl`}
               />
               <c.icon className="relative text-2xl text-cyan-300/90" />
-              <h3 className="relative mt-4 font-[family-name:var(--font-outfit)] text-lg font-semibold text-white">
+              <h3 className="relative mt-4 font-(family-name:--font-outfit) text-lg font-semibold text-white">
                 {c.title}
               </h3>
               <p className="relative mt-2 text-sm leading-relaxed text-zinc-500">

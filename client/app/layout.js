@@ -16,19 +16,16 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   title: {
-    default: "Varun Yadav — Engineer & Security",
+    default: "Varun Yadav — Developer & Security Researcher",
     template: "%s · Varun Yadav",
   },
   description:
-    "Full stack portfolio — projects, skills, curated learning resources, and writing.",
+    "Developer portfolio — projects, skills, curated learning resources, and more.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${dmSans.variable}`}
-    >
+    <html lang="en" className={`${outfit.variable} ${dmSans.variable}`}>
       <body className="min-h-screen antialiased">
         <SiteShell>{children}</SiteShell>
       </body>

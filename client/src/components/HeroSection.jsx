@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ReactTyped } from "react-typed";
 import { assets, Expertise } from "../assets/assets";
-import { FaProjectDiagram, FaEnvelope, FaDownload, FaArrowRight } from "react-icons/fa";
+import {
+  FaProjectDiagram,
+  FaEnvelope,
+  FaDownload,
+  FaArrowRight,
+} from "react-icons/fa";
 import { siteConfig } from "@/config/site";
 
 export default function HeroSection() {
@@ -24,17 +29,19 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="font-[family-name:var(--font-outfit)] text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="font-(family-name:--font-outfit) text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             {siteConfig.name.split(" ")[0]}{" "}
-            <span className="text-gradient">{siteConfig.name.split(" ").slice(1).join(" ")}</span>
+            <span className="text-gradient">
+              {siteConfig.name.split(" ").slice(1).join(" ")}
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.12 }}
-            className="mt-2 font-[family-name:var(--font-outfit)] text-lg text-zinc-400 sm:text-xl"
+            className="mt-2 font-(family-name:--font-outfit) text-lg text-zinc-400 sm:text-xl"
           >
             {siteConfig.role}
           </motion.p>
@@ -43,7 +50,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.18 }}
-            className="mt-6 min-h-[2rem] text-lg text-zinc-300 sm:text-xl"
+            className="mt-6 min-h-8 text-lg text-zinc-300 sm:text-xl"
           >
             <span className="text-zinc-500">Focus areas · </span>
             <ReactTyped
@@ -85,7 +92,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/resources"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:border-cyan-500/40 hover:bg-white/[0.07]"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/4 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:border-cyan-500/40 hover:bg-white/[0.07]"
             >
               Learning hub
             </Link>
@@ -113,8 +120,8 @@ export default function HeroSection() {
           transition={{ delay: 0.15, duration: 0.5 }}
           className="relative mx-auto w-full max-w-md"
         >
-          <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-cyan-500/20 via-violet-500/15 to-fuchsia-500/10 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900/50 p-1 shadow-2xl">
+          <div className="absolute -inset-4 rounded-4xl bg-linear-to-br from-cyan-500/20 via-violet-500/15 to-fuchsia-500/10 blur-2xl" />
+          <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-zinc-900/50 p-1 shadow-2xl">
             <div className="overflow-hidden rounded-[1.85rem]">
               <motion.img
                 src={assets.Profile}
@@ -129,7 +136,7 @@ export default function HeroSection() {
               <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
                 Currently
               </p>
-              <p className="mt-1 font-[family-name:var(--font-outfit)] text-sm font-semibold text-white">
+              <p className="mt-1 font-(family-name:--font-outfit) text-sm font-semibold text-white">
                 Shipping production web & learning in public
               </p>
             </div>
@@ -146,7 +153,7 @@ export default function HeroSection() {
       >
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-[family-name:var(--font-outfit)] text-xl font-semibold text-white sm:text-2xl">
+            <h2 className="font-(family-name:--font-outfit) text-xl font-semibold text-white sm:text-2xl">
               How I work
             </h2>
             <p className="mt-1 text-sm text-zinc-500">
@@ -163,7 +170,7 @@ export default function HeroSection() {
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/10 text-xl text-cyan-300 transition group-hover:bg-cyan-500/15">
                 <expertise.icon />
               </div>
-              <h3 className="font-[family-name:var(--font-outfit)] font-semibold text-zinc-100">
+              <h3 className="font-(family-name:--font-outfit) font-semibold text-zinc-100">
                 {expertise.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-500">

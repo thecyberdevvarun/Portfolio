@@ -64,12 +64,12 @@ const Interests = [
 
 export default function InterestsSection() {
   return (
-    <section className="mt-24 border-t border-white/[0.06] pt-20">
+    <section className="mt-24 border-t border-white/6 pt-20">
       <div className="mb-10 text-center md:text-left">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400/80">
           Interests
         </p>
-        <h2 className="mt-2 font-[family-name:var(--font-outfit)] text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="mt-2 font-(family-name:--font-outfit) text-2xl font-bold text-white sm:text-3xl">
           What I gravitate toward
         </h2>
       </div>
@@ -90,7 +90,7 @@ export default function InterestsSection() {
             >
               {React.cloneElement(interest.icon, { className: "text-xl" })}
             </div>
-            <h3 className="mt-4 font-[family-name:var(--font-outfit)] text-lg font-semibold text-zinc-100">
+            <h3 className="mt-4 font-(family-name:--font-outfit) text-lg font-semibold text-zinc-100">
               {interest.title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-zinc-500">

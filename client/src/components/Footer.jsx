@@ -40,11 +40,11 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/[0.06] bg-zinc-950/80">
+    <footer className="relative z-10 border-t border-white/6 bg-zinc-950/80">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:px-10">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <p className="font-[family-name:var(--font-outfit)] text-xl font-semibold text-white">
+            <p className="font-(family-name:--font-outfit) text-xl font-semibold text-white">
               {siteConfig.name}
             </p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-500">
@@ -58,7 +58,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-lg text-zinc-400 transition-colors hover:border-cyan-500/30 hover:text-cyan-300"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/3 text-lg text-zinc-400 transition-colors hover:border-cyan-500/30 hover:text-cyan-300"
                 >
                   <Icon />
                 </a>
@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 text-xs text-zinc-600 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/6 pt-8 text-xs text-zinc-600 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>

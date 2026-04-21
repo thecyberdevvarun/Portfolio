@@ -43,7 +43,7 @@ export default function Projects() {
               className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition ${
                 activeOrigin === origin
                   ? "bg-emerald-500/20 text-emerald-200 ring-1 ring-emerald-500/40"
-                  : "text-zinc-400 hover:bg-white/[0.04]"
+                  : "text-zinc-400 hover:bg-white/4"
               }`}
             >
               {origin === "Personal" ? <FaUser /> : <FaBuilding />}
@@ -60,7 +60,7 @@ export default function Projects() {
               className={`rounded-xl px-3 py-2 text-sm font-medium transition ${
                 activeCategory === category
                   ? "bg-cyan-500/20 text-cyan-100 ring-1 ring-cyan-500/35"
-                  : "text-zinc-400 hover:bg-white/[0.04]"
+                  : "text-zinc-400 hover:bg-white/4"
               }`}
             >
               {category}
@@ -85,7 +85,7 @@ export default function Projects() {
             whileHover={{ y: -4 }}
             className="surface-card flex flex-col overflow-hidden transition hover:border-cyan-500/20"
           >
-            <div className="flex items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+            <div className="flex items-center justify-between border-b border-white/6 bg-white/2 px-4 py-3">
               <div className="flex items-center gap-2 text-xs text-zinc-400">
                 {project.company ? (
                   <>
@@ -113,18 +113,18 @@ export default function Projects() {
                 <project.icon />
               </div>
             </div>
-            <div className="flex flex-grow flex-col p-4">
-              <h3 className="font-[family-name:var(--font-outfit)] text-lg font-semibold text-white">
+            <div className="flex grow flex-col p-4">
+              <h3 className="font-(family-name:--font-outfit) text-lg font-semibold text-white">
                 {project.title}
               </h3>
-              <p className="mt-2 flex-grow text-sm leading-relaxed text-zinc-500">
+              <p className="mt-2 grow text-sm leading-relaxed text-zinc-500">
                 {project.description}
               </p>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {project.technologies.slice(0, 8).map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="rounded-md bg-white/[0.05] px-2 py-0.5 text-[11px] text-zinc-400"
+                    className="rounded-md bg-white/5 px-2 py-0.5 text-[11px] text-zinc-400"
                   >
                     {tech}
                   </span>
@@ -135,7 +135,7 @@ export default function Projects() {
                   </span>
                 )}
               </div>
-              <div className="mt-4 flex justify-between border-t border-white/[0.06] pt-3">
+              <div className="mt-4 flex justify-between border-t border-white/6 pt-3">
                 <a
                   href={project.githubLink}
                   target="_blank"

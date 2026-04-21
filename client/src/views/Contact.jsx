@@ -77,7 +77,7 @@ export default function Contact() {
           animate={{ opacity: 1, x: 0 }}
           className="surface-card p-6 sm:p-8"
         >
-          <h2 className="font-[family-name:var(--font-outfit)] text-lg font-semibold text-white">
+          <h2 className="font-(family-name:--font-outfit) text-lg font-semibold text-white">
             Direct lines
           </h2>
           <p className="mt-2 text-sm text-zinc-500">
@@ -131,7 +131,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="surface-card p-6 sm:p-8"
         >
-          <h2 className="flex items-center gap-2 font-[family-name:var(--font-outfit)] text-lg font-semibold text-white">
+          <h2 className="flex items-center gap-2 font-(family-name:--font-outfit) text-lg font-semibold text-white">
             <FaPaperPlane className="text-cyan-400" />
             Send a message
           </h2>
@@ -187,7 +187,7 @@ export default function Contact() {
                 required
                 rows={5}
                 placeholder="What are we building?"
-                className={`${inputClass} resize-y min-h-[120px]`}
+                className={`${inputClass} resize-y min-h-30`}
               />
             </div>
 

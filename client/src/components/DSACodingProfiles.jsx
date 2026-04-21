@@ -30,12 +30,12 @@ const codingProfiles = [
 
 export default function DSACodingProfiles() {
   return (
-    <section className="mt-24 border-t border-white/[0.06] pt-20">
+    <section className="mt-24 border-t border-white/6 pt-20">
       <div className="mb-10 text-center md:text-left">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400/80">
           Practice
         </p>
-        <h2 className="mt-2 font-[family-name:var(--font-outfit)] text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="mt-2 font-(family-name:--font-outfit) text-2xl font-bold text-white sm:text-3xl">
           DSA & coding profiles
         </h2>
         <p className="mt-2 text-zinc-500">

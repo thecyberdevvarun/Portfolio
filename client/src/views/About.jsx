@@ -143,16 +143,16 @@ export default function About() {
 
       <div className="surface-card overflow-hidden lg:flex">
         <div className="relative lg:w-1/2">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-600/10" />
+          <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 to-violet-600/10" />
           {/* eslint-disable-next-line @next/next/no-img-element -- local public asset */}
           <img
             src={assets.Profile}
             alt="Portrait"
-            className="relative h-72 w-full object-cover lg:h-full lg:min-h-[420px]"
+            className="relative h-72 w-full object-cover lg:h-full lg:min-h-105"
           />
         </div>
         <div className="flex flex-col justify-center p-8 lg:w-1/2 lg:p-12">
-          <h2 className="font-[family-name:var(--font-outfit)] text-2xl font-bold text-white">
+          <h2 className="font-(family-name:--font-outfit) text-2xl font-bold text-white">
             Hello — I&apos;m Varun
           </h2>
           <p className="mt-4 leading-relaxed text-zinc-400">
@@ -212,7 +212,7 @@ export default function About() {
       </div>
 
       <div className="mt-16">
-        <h3 className="text-center font-[family-name:var(--font-outfit)] text-2xl font-bold text-white md:text-left">
+        <h3 className="text-center font-(family-name:--font-outfit) text-2xl font-bold text-white md:text-left">
           Professional focus
         </h3>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -234,7 +234,7 @@ export default function About() {
       </div>
 
       <div className="mt-20">
-        <h3 className="text-center font-[family-name:var(--font-outfit)] text-2xl font-bold text-white md:text-left">
+        <h3 className="text-center font-(family-name:--font-outfit) text-2xl font-bold text-white md:text-left">
           Experience
         </h3>
         <div className="mt-8 space-y-6">
@@ -260,7 +260,7 @@ export default function About() {
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <h4 className="font-[family-name:var(--font-outfit)] text-lg font-semibold text-white">
+                  <h4 className="font-(family-name:--font-outfit) text-lg font-semibold text-white">
                     {exp.position}
                   </h4>
                   <p className="text-sm text-zinc-400">
@@ -276,7 +276,7 @@ export default function About() {
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-md bg-white/[0.05] px-2 py-1 text-xs text-zinc-400"
+                        className="rounded-md bg-white/5 px-2 py-1 text-xs text-zinc-400"
                       >
                         {tech}
                       </span>
@@ -290,11 +290,11 @@ export default function About() {
       </div>
 
       <div className="mt-20">
-        <h3 className="text-center font-[family-name:var(--font-outfit)] text-2xl font-bold text-white md:text-left">
+        <h3 className="text-center font-(family-name:--font-outfit) text-2xl font-bold text-white md:text-left">
           Education
         </h3>
         <div className="relative mt-10">
-          <div className="absolute left-[11px] top-0 hidden h-full w-px bg-gradient-to-b from-cyan-500/50 to-transparent md:block" />
+          <div className="absolute left-2.75 top-0 hidden h-full w-px bg-linear-to-b from-cyan-500/50 to-transparent md:block" />
           <div className="space-y-8">
             {education.map((edu, index) => (
               <div
@@ -302,14 +302,14 @@ export default function About() {
                 className="relative flex flex-col gap-4 md:flex-row md:items-center"
               >
                 <div
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white md:absolute md:left-0 md:-translate-x-0 ${edu.color}`}
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white md:absolute md:left-0 md:translate-x-0 ${edu.color}`}
                 >
                   {edu.icon}
                 </div>
                 <div className="surface-card ml-0 flex-1 p-6 md:ml-12">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h4 className="font-semibold text-zinc-100">{edu.degree}</h4>
-                    <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-xs text-zinc-400">
+                    <span className="rounded-full bg-white/6 px-2 py-0.5 text-xs text-zinc-400">
                       {edu.type}
                     </span>
                   </div>
@@ -326,9 +326,9 @@ export default function About() {
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-20 overflow-hidden rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 via-zinc-900/80 to-violet-600/10 p-8 text-center sm:p-12"
+        className="mt-20 overflow-hidden rounded-2xl border border-cyan-500/20 bg-linear-to-br from-cyan-500/10 via-zinc-900/80 to-violet-600/10 p-8 text-center sm:p-12"
       >
-        <h3 className="font-[family-name:var(--font-outfit)] text-2xl font-bold text-white sm:text-3xl">
+        <h3 className="font-(family-name:--font-outfit) text-2xl font-bold text-white sm:text-3xl">
           {"Let's Innovate and Secure the Web"}
         </h3>
         <p className="mx-auto mt-4 max-w-xl text-sm text-zinc-400 sm:text-base">
