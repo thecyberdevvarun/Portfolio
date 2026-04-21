@@ -2,7 +2,7 @@
 export const siteConfig = {
   name: "Varun Yadav",
   handle: "thecyberdev",
-  role: "Full Stack Engineer",
+  role: "MES Developer",
   tagline: "Building reliable web systems · exploring security & DevOps",
   description:
     "Portfolio and learning hub — projects, skills, curated resources.",

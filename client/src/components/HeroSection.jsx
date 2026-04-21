@@ -102,14 +102,15 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-5 py-3 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-500/20"
             >
               <FaDownload />
-              Résumé
+              Resume
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-zinc-400 underline-offset-4 transition hover:text-white"
+              className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-5 py-3 text-sm font-semibold text-cyan-200 shadow-[0_0_20px_-6px_rgba(34,211,238,0.3)] transition hover:border-cyan-400/50 hover:bg-cyan-500/20 hover:shadow-[0_0_28px_-4px_rgba(34,211,238,0.4)]"
             >
               <FaEnvelope />
               Contact
+              <FaArrowRight className="text-xs opacity-80" />
             </Link>
           </motion.div>
         </div>
