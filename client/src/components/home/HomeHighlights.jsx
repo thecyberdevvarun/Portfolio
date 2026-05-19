@@ -14,7 +14,7 @@ const cards = [
   },
   {
     title: "Resource hub",
-    desc: "Curated docs, courses, YouTube videos, tools, and security references.",
+    desc: "Curated docs, courses, tools, and security references.",
     href: "/resources",
     icon: FaBookReader,
     accent: "from-violet-500/20 to-transparent",

@@ -1,83 +1,8 @@
 /**
- * Learning resources — links, YouTube videos, docs, tools, and references.
- * YouTube URLs are auto-detected and rendered with thumbnails.
+ * Learning resources — links, docs, tools, and references.
  */
 
 export const learningResources = [
-  // ── YouTube Videos ─────────────────────────────
-  {
-    id: "yt-fireship-100",
-    title: "100+ Computer Science Concepts Explained",
-    description:
-      "Fireship explains 100+ CS concepts in a fast-paced visual format — perfect quick refresher.",
-    url: "https://www.youtube.com/watch?v=XXYlFuWEuKI",
-    category: "YouTube",
-    tags: ["Computer Science", "Fundamentals", "Fireship"],
-  },
-  {
-    id: "yt-nextjs-course",
-    title: "Next.js 14 Full Course 2024",
-    description:
-      "Complete beginner to advanced Next.js tutorial covering App Router, Server Actions, and more.",
-    url: "https://www.youtube.com/watch?v=wm5gMKuwSYk",
-    category: "YouTube",
-    tags: ["Next.js", "React", "Full Course"],
-  },
-  {
-    id: "yt-nodejs-guide",
-    title: "Node.js Ultimate Beginner's Guide",
-    description:
-      "Fireship's quick-fire Node.js guide covering the runtime, modules, and building APIs.",
-    url: "https://www.youtube.com/watch?v=ENrzD9HAZK4",
-    category: "YouTube",
-    tags: ["Node.js", "Backend", "Fireship"],
-  },
-  {
-    id: "yt-tailwind-course",
-    title: "Tailwind CSS Full Course for Beginners",
-    description:
-      "Learn Tailwind from scratch — utility classes, responsive design, components, and dark mode.",
-    url: "https://www.youtube.com/watch?v=lCxcTsOHrjo",
-    category: "YouTube",
-    tags: ["Tailwind", "CSS", "Frontend"],
-  },
-  {
-    id: "yt-linux-101",
-    title: "Linux Directories Explained in 100 Seconds",
-    description:
-      "Quick breakdown of the Linux file system hierarchy by Fireship.",
-    url: "https://www.youtube.com/watch?v=42iQKuQodW4",
-    category: "YouTube",
-    tags: ["Linux", "DevOps", "Fireship"],
-  },
-  {
-    id: "yt-docker-crash",
-    title: "Docker in 100 Seconds",
-    description:
-      "Fireship explains containers, images, and Docker Compose in a quick visual overview.",
-    url: "https://www.youtube.com/watch?v=Gjnup-PuquQ",
-    category: "YouTube",
-    tags: ["Docker", "DevOps", "Fireship"],
-  },
-  {
-    id: "yt-networkchuck-ethical",
-    title: "Ethical Hacking in 15 Hours",
-    description:
-      "NetworkChuck's full ethical hacking course — Kali, Nmap, Burp Suite, and more.",
-    url: "https://www.youtube.com/watch?v=3FNYvj2U0HM",
-    category: "YouTube",
-    tags: ["Security", "Ethical Hacking", "NetworkChuck"],
-  },
-  {
-    id: "yt-traversy-mern",
-    title: "MERN Stack Crash Course",
-    description:
-      "Traversy Media builds a full MERN app from scratch — MongoDB, Express, React, Node.",
-    url: "https://www.youtube.com/watch?v=-0exw-9YJBo",
-    category: "YouTube",
-    tags: ["MERN", "Full Stack", "Traversy Media"],
-  },
-
   // ── Documentation ──────────────────────────────
   {
     id: "mdn",
@@ -212,7 +137,6 @@ export const learningResources = [
 
 export const resourceCategories = [
   "All",
-  "YouTube",
   "Documentation",
   "Courses",
   "Security",
