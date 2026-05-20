@@ -37,6 +37,8 @@ export const assets = {
   LeetCode: "/assets/LeetCode_logo.png",
   Gfg: "/assets/Gfg_logo.svg",
   CodingNinjas: "/assets/CodingNinjas_logo.svg",
+  taniyawebfix_logo: "/assets/taniyawebfix_logo.webp",
+  western_refrigeration_logo: "/assets/western_refrigeration_logo.png",
 };
 
 export const Expertise = [

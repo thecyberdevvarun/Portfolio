@@ -11,11 +11,11 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
-import { assets } from "../assets/assets";
+import { assets } from "@/assets/assets";
 import Link from "next/link";
 import { SiTryhackme } from "react-icons/si";
 import PageHeader from "@/components/ui/PageHeader";
-
+import Image from "next/image";
 const experiences = [
   {
     title: "Full Stack Development",
@@ -46,7 +46,7 @@ const experiences = [
 const workExperience = [
   {
     company: "Taniya Webfix Pvt Ltd",
-    logo: "https://taniyawebfix.com/wp-content/uploads/2024/09/logo.jpg",
+    logo: assets.taniyawebfix_logo,
     position: "Web Developer Intern",
     duration: "Aug 2024 - Mar 2025",
     location: "Vadodara, Gujarat, India · On-site",
@@ -70,7 +70,7 @@ const workExperience = [
   },
   {
     company: "Western Refrigeration Pvt Ltd",
-    logo: "https://westernequipments.com/wp-content/uploads/2025/01/western-head-logo-2025.png",
+    logo: assets.western_refrigeration_logo,
     position: "MES Developer",
     duration: "May 2025 - Present",
     location: "Valsad, Gujarat, India · On-site",
@@ -97,7 +97,6 @@ const workExperience = [
       "GitHub",
     ],
   },
-
 ];
 
 const education = [
@@ -249,10 +248,12 @@ export default function About() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
                 {exp.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element -- external employer logos
-                  <img
+                  <Image
                     src={exp.logo}
-                    alt=""
-                    className="h-14 w-auto object-contain sm:mr-2"
+                    alt={exp.company}
+                    width={70}
+                    height={70}
+                    className="object-contain sm:mr-2"
                   />
                 ) : (
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-300">
@@ -308,12 +309,16 @@ export default function About() {
                 </div>
                 <div className="surface-card ml-0 flex-1 p-6 md:ml-12">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h4 className="font-semibold text-zinc-100">{edu.degree}</h4>
+                    <h4 className="font-semibold text-zinc-100">
+                      {edu.degree}
+                    </h4>
                     <span className="rounded-full bg-white/6 px-2 py-0.5 text-xs text-zinc-400">
                       {edu.type}
                     </span>
                   </div>
-                  <p className="mt-1 text-sm text-zinc-500">{edu.institution}</p>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    {edu.institution}
+                  </p>
                   <p className="mt-1 text-xs text-zinc-600">{edu.year}</p>
                 </div>
               </div>
